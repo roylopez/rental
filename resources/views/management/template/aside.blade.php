@@ -12,6 +12,9 @@
       <li><a href="{{route('management.marcas.index')}}"><i class="fa fa-map-pin"></i> <span>Marcas</span></a></li>
       <li><a href="{{route('management.tipos.index')}}"><i class="fa fa-link"></i> <span>Tipos</span></a></li>
       @endif
+      @if(Auth::user()->cliente())
+      <li><a href="{{route('management.users.index')}}"><i class="fa fa-users"></i> <span>Mi Cuenta</span></a></li>
+      @endif
     </ul>
   </section>
 </aside>

@@ -57,6 +57,10 @@ class Vehiculo extends Model
     return $query->where('placa','=',''.$placa.'');
   }
 
+  public function scopeSearchId($query,$id){
+    return $query->where('id','=',$id);
+  }
+
   public function scopeTopVehiculos(){
     return DB::table('vehiculos')
                         ->select(DB::raw('count(rentas.id) as num_rentas, vehiculos.placa'))

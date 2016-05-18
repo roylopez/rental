@@ -1,5 +1,5 @@
 <header class="main-header">
-  <a href="#" class="logo" style="position:fixed">
+  <a href="{{route('front.index')}}" class="logo" style="position:fixed">
     <span class="logo-mini"><b>R</b>Car</span>
     <span class="logo-lg"><b>Rental</b>Car</span>
   </a>

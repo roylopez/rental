@@ -6,6 +6,7 @@
 
 @section('content')
 
+@if(Auth::user()->admin())
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-primary">
       <div class="panel-heading" role="tab" id="headingOne">
@@ -81,6 +82,7 @@
       </div>
     </div>
   </div>
+@endif
 
   <hr>
   <table class="table table-hover table-condensed">
@@ -89,15 +91,31 @@
         <th>Identificacion</th>
         <th>Nombre</th>
         <th>Telefono</th>
+        @if(Auth::user()->admin())
         <th>Tipo</th>
+        @endif
         <th>Horas Acumuladas</th>
         <th>Email</th>
         <th>Editar</th>
+        @if(Auth::user()->admin())
         <th>Eliminar</th>
+        @endif
       </tr>
     </thead>
     <tbody>
       @foreach($usuarios as $usuario)
+        @if(Auth::user()->cliente() and $usuario->id == Auth::user()->id)
+          <tr>
+            <td>{{$usuario->cedula}}</td>
+            <td>{{$usuario->name}}</td>
+            <td>{{$usuario->telefono}}</td>
+            <td>{{$usuario->horasAcumuladas}}</td>
+            <td>{{$usuario->email}}</td>
+            <td><a href=" {{ route('management.users.edit',$usuario->id) }} " class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+          </tr>
+        @endif
+
+        @if(Auth::user()->admin())
         <tr>
           <td>{{$usuario->cedula}}</td>
           <td>{{$usuario->name}}</td>
@@ -108,9 +126,12 @@
           <td><a href=" {{ route('management.users.edit',$usuario->id) }} " class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
           <td><a href=" {{ route('management.users.destroy',$usuario->id) }} " class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
         </tr>
+        @endif
       @endforeach
     </tbody>
   </table>
-  {!! $usuarios->render() !!}
 
+  @if(Auth::user()->admin())
+    {!! $usuarios->render() !!}
+  @endif
 @endsection

@@ -71,6 +71,7 @@ class UsersController extends Controller
       return redirect()->route('management.users.edit',$id);
     }
     if ($flagCorreo == false && $flagCedula == false) {
+
       $usuario->cedula=$request->cedula;
       $usuario->name=$request->name;
       $usuario->licencia=$request->cedula;

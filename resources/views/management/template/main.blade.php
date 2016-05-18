@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="{{asset('images/icon/faviconpanel.ico')}}" type="image/x-icon"/>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>@yield('title','default') | Panel de administración</title>
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.css')}}">

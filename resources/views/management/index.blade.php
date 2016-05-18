@@ -6,6 +6,14 @@
 
 @section('content')
   <div class="">
+    @if(Auth::user()->cliente())
+      <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+          <img class="img img-responsive" src="{{asset('images/icon/faviconpanel.ico')}}" alt="" />
+        </div>
+      </div>
+    @endif
+
     <h2 align="center">Bienvenido a RentalCar: Sistema de renta vehicular.</h2>
 
     @if(Auth::user()->admin())

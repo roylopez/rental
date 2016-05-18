@@ -11,12 +11,16 @@
 |
 */
 
+Route::get('/',['as' => 'front.index','uses' => 'FrontController@index']);
+Route::get('/vehiculos/tipo/{id}',['as' => 'front.search.tipo','uses' => 'FrontController@searchTipo']);
+Route::get('/vehiculos/marca/{id}',['as' => 'front.search.marca','uses' => 'FrontController@searchMarca']);
+
+
 Route::group(['prefix'=>'management','middleware'=>'auth'],function(){
 
   Route::get('/', ['as' => 'management.index', function () {
       return view('management/index');
   }]);
-
 
   Route::group(['middleware'=>'administrador'],function(){
 
@@ -30,11 +34,6 @@ Route::group(['prefix'=>'management','middleware'=>'auth'],function(){
                                     'as' => 'management.tipos.destroy']);
     Route::get('tipo/toptipos','TiposController@kilometraje');
 
-    Route::resource('users','UsersController');
-    Route::get('user/{id}/destroy',['uses'=>'UsersController@destroy',
-                                    'as' => 'management.users.destroy']);
-    Route::get('user/topusers','UsersController@topusers');
-
     Route::resource('devoluciones','DevolucionesController');
     Route::get('devolucion/{id}/create',['uses'=>'DevolucionesController@create',
                                     'as' => 'management.devoluciones.create']);
@@ -46,11 +45,18 @@ Route::group(['prefix'=>'management','middleware'=>'auth'],function(){
                                     'as' => 'management.devoluciones.imprimir']);
   });
 
+  Route::resource('users','UsersController');
+  Route::get('user/{id}/destroy',['uses'=>'UsersController@destroy',
+                                  'as' => 'management.users.destroy']);
+  Route::get('user/topusers','UsersController@topusers');
+
   Route::resource('vehiculos','VehiculosController');
   Route::get('vehiculo/{id}/destroy',['uses'=>'VehiculosController@destroy',
                                   'as' => 'management.vehiculos.destroy']);
   Route::get('vehiculo/reporte',['uses'=>'VehiculosController@reporte',
                                   'as' => 'management.vehiculos.reporte']);
+  Route::get('vehiculo/{id}/getvehiculo',['uses'=>'VehiculosController@getVehiculo',
+                                  'as' => 'management.vehiculos.getvehiculo']);
   Route::get('vehiculo/topkilometraje','VehiculosController@kilometraje');
   Route::get('vehiculo/allvehicles','VehiculosController@allvehicles');
   Route::get('vehiculo/topvehiculos','VehiculosController@topvehiculos');

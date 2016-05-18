@@ -204,4 +204,12 @@ class VehiculosController extends Controller
     $vehiculos = Vehiculo::topVehiculos();
     return response()->json($vehiculos);
   }
+
+  public function getVehiculo($id){
+    $vehicles = Vehiculo::searchId($id)->orderBy('id','ASC')->paginate(1);
+    $marcas = Marca::orderBy('nombre','ASC')->lists('nombre','id');
+    $tipos = Tipo::orderBy('nombre','ASC')->lists('nombre','id');
+
+    return view('management/vehiculos/index',['vehiculos'=>$vehicles,'marcas'=>$marcas,'tipos'=>$tipos]);
+  }
 }
