@@ -6,13 +6,13 @@
     <link rel="icon" href="{{asset('images/icon/faviconpanel.ico')}}" type="image/x-icon"/>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>@yield('title','RentalCar')</title>
-    <link rel="stylesheet" href="https://rentalcar-roylopez.c9users.io/public/css/footer.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="https://rentalcar-roylopez.c9users.io/public/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="https://rentalcar-roylopez.c9users.io/public/fontawesome/css/font-awesome.css">
-    <link rel="stylesheet" href="https://rentalcar-roylopez.c9users.io/public/template/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://rentalcar-roylopez.c9users.io/public/template/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://rentalcar-roylopez.c9users.io/public/css/silder.css">
-    <link rel="stylesheet" href="https://rentalcar-roylopez.c9users.io/public/animate/animate.min.css">
+    <link rel="stylesheet" href="{{asset('css/footer.css')}}" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('fontawesome/css/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{asset('template/fontawesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('template/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/silder.css')}}">
+    <link rel="stylesheet" href="{{asset('animate/animate.min.css')}}">
 
   </head>
   <body>
@@ -35,10 +35,10 @@
     @include('front/template/ubicacion')
     @include('front/template/footer')
 
-    <script type="text/javascript" src="https://rentalcar-roylopez.c9users.io/public/jquery/js/jquery.js"></script>
-    <script type="text/javascript" src="https://rentalcar-roylopez.c9users.io/public/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="https://rentalcar-roylopez.c9users.io/public/js/silder.js"></script>
-    <script type="text/javascript" src="https://rentalcar-roylopez.c9users.io/public/animate/animatedModal.js"></script>
+    <script type="text/javascript" src="{{asset('jquery/js/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{asset('bootstrap/js/bootstrap.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/silder.js')}}"></script>
+    <script type="text/javascript" src="{{asset('animate/animatedModal.js')}}"></script>
     @yield('js')
   </body>
 </html>
